@@ -1,5 +1,5 @@
 # Bootstrap
-# app/bootstrap*
+app/bootstrap*
 
 # Symfony directories
 vendor/*
@@ -19,3 +19,4 @@ web/bundles/*
 # Capifony
 Capfile
 app/config/deploy.rb
+/nbproject/private/
