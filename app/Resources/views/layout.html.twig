@@ -20,11 +20,9 @@
   <body>
     <div class="container">
       <div id="header" class="hero-unit">
-        <h1>Mon Projet Symfony2</h1>
-        <p>Ce projet est propulsé par Symfony2, et construit grâce au tutoriel du siteduzero.</p>
-        <p><a class="btn btn-primary btn-large" href="http://www.siteduzero.com/informatique/tutoriels/developpez-votre-site-web-avec-le-framework-symfony2">
-          Lire le tutoriel &raquo;
-        </a></p>
+        <h1>Ecole de la foi</h1>
+        <p>Ta Parole est une lampe à mes peids et une lumière sur mon sentier.( Psaumes 119:105 ) </p>
+        <p>La foi victorieuse internationale. LYON FRANCE</p>
       </div>
 
       <div class="row">
@@ -34,7 +32,7 @@
             <li><a href="{{ path('sdzblog_accueil') }}">Accueil du blog</a></li>
             {# On n'affiche le lien pour ajouter un article qu'aux utilisateurs disposant du rôle ROLE_AUTEUR #}
             {% if is_granted('ROLE_AUTEUR') %}
-              <li><a href="{{ path('sdzblog_ajouter') }}">Ajouter un article</a></li>
+              <li><a href="{{ path('sdzblog_ajouter') }}">Ajouter un sujet</a></li>
             {% endif %}
           </ul>
 
@@ -69,8 +67,7 @@
       <hr>
 
       <footer>
-        <p>
-          Réalisé par le Couple   Josiane et Jean-Jacques DIASIVI © 2013.</p>
+        <p>Réalisé par le Couple   Josiane et Jean-Jacques DIASIVI © 2013.</p>
       </footer>
     </div>
 
