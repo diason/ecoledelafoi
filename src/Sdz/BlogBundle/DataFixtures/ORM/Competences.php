@@ -12,7 +12,7 @@ class Competences implements FixtureInterface
   public function load(ObjectManager $manager)
   {
     // Liste des noms de compétences à ajouter
-    $noms = array('Doctrine', 'Formulaire', 'Twig');
+    $noms = array('Pasteur', 'Evangeliste', 'Ancien','Frère ou Soeur');
 
     foreach ($noms as $i => $nom) {
       // On crée la compétence
