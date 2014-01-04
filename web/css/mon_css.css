@@ -1,0 +1,30 @@
+
+body {
+background-color:#DDD;
+color:#048
+}
+a{
+color: #028;
+}
+p{
+font-size: 12px;
+line-height: 16px;
+}
+h1, h2, h3, h4, h5, h6 {
+font-weight:lighter;
+}
+#contenu {
+height: 300px;
+}
+#footer {
+text-align:center;
+background-color:#CCC;
+border-radius: 10px;
+padding: 4px;
+}
+#menu {
+height: 100px;
+background-color:#CCC;
+border-radius: 10px;
+}
+
