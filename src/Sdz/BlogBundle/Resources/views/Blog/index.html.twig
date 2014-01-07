@@ -8,14 +8,14 @@
 
 {% block sdzblog_body %}
 
-  <h2>Liste des articles</h2>
+  <h2>Liste des sujets</h2>
 
   <ul>
     {% for article in articles %}
       {% include "SdzBlogBundle:Blog:article.html.twig" with {'accueil': true} %}
-      <hr />
+     
     {% else %}
-      <p>Pas (encore !) d'articles</p>
+      <p>Pas (encore !) des sujets</p>
     {% endfor %}
   </ul>
 
