@@ -33,4 +33,4 @@ sdzblog_supprimer_commentaire:
     pattern:   /supprimer/commentaire/{id}
     defaults:  { _controller: SdzBlogBundle:Blog:supprimerCommentaire }
     requirements:
-        id:  \d+
+        id:  \d+        

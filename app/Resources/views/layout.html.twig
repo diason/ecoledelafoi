@@ -16,43 +16,27 @@
         <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
       {% endstylesheets % #}
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css" />
-     <link rel="stylesheet" href="{{ asset('css/screen.css') }}" type="text/css" />
-    
+     <link rel="stylesheet" href="{{ asset('css/screen.css') }}" type="text/css" />    
     {% endblock %}
   </head>
 
   <body>
     <div class="container">
-       <header id="header">
-                <div class="top">
-                    {% block navigation %}
-                        <nav>
-                            <ul class="navigation">
-                                <li><a href="#">Connexion</a></li>
-                                <li><a href="#">Inscription</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </nav>
-                    {% endblock %}
-                </div>
+       <header id="header">               
            <hgroup>
                     <h2>{% block blog_title %}<a href="#">A l'Ecole de la foi</a>{% endblock %}</h2>
                     <h3>{% block blog_tagline %}<a href="#">La Foi Victorieuse Internationale. LYON France</a>{% endblock %}</h3>
            </hgroup>
-         </header> 
-    
-
-      <div class="row">
+       </header> 
+    <div class="row">
         <div id="menu" class="span3">
-          
-            <ul class="nav nav-pills nav-stacked">
-                <li><a href="{{ path('sdzblog_accueil') }}">Accueil du blog</a></li>
-                <li><a href="#">A propos</a></li>          
-                <li><a href="#">Contact</a></li>
+           <ul class="nav nav-pills nav-stacked">
+                <li><a href="{{ path('sdzblog_accueil')}}">Accueil du blog</a></li>
+                <li><a href="{{ path('sdzblog_about') }} ">A propos</a></li>          
+                <li><a href="{{ path('sdzblog_contact')}}">Contact</a></li>
                 {# On n'affiche le lien pour ajouter un article qu'aux utilisateurs disposant du rôle ROLE_AUTEUR #}
                 {% if is_granted('ROLE_AUTEUR') %}
                   <li><a href="{{ path('sdzblog_ajouter') }}">Ajouter un sujet</a></li>
-
                 {% endif %}
           </ul>
 <hr>
@@ -64,25 +48,26 @@
           {# On affiche un coin espace membre :
              * Si le membre est identifié : lien de déconnexion
              * Sinon : formulaire de connexion #}
-          {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-         
+          {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}        
             <h3>Membre</h3>
             <ul class="nav nav-pills nav-stacked">
               <li>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</li>
-              <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+              <li><a href="{{ path('fos_user_security_logout') }}">{{'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
               <li><a class="btn btn-primary btn-large" href="https://meet15579093.adobeconnect.com">
                       Accès dans la salle &raquo; </a></li>
             </ul>
           {# On affiche le formulaire de login, sauf sur la page de connexion #}
-          {% elseif app.request.attributes.get('_route') != 'fos_user_security_login' %}
-            
+          {% elseif app.request.attributes.get('_route') != 'fos_user_security_login' %}           
             <h3>Identification</h3>
-            {{ render(controller('SdzUserBundle:Security:login')) }}       
-            
-           {% endif %}
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="{{ path('fos_user_security_login') }}">{{'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>                    
+            </ul>
   <hr>    {# On affiche le formulaire de l'Inscription, sauf sur la page de connexion #}      
             <h3>Inscription</h3>
-             {{ render(controller('SdzUserBundle:Registration:register')) }}
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="{{ path('fos_user_registration_register') }}">{{'layout.register'|trans({}, 'FOSUserBundle') }}</a></li>
+            </ul>           
+           {% endif %}           
      </div>
 
         {# Contenu central de la page #}
@@ -93,7 +78,6 @@
   </div>
 
   <hr>
-
   <footer>
         <p>Réalisé par le Couple Josiane et Jean-Jacques DIASIVI © 2013.</p>
   </footer>
