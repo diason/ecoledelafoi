@@ -3,11 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-<<<<<<< HEAD
-    <meta name="author" content="Jean Jacques DIASIVI">
-=======
    {# <meta name="author" content="Alexandre Bacco">
->>>>>>> modif_layout
     <meta name="keywords" content="Symfony2, Symfony, Symfony2.1, Symfony2.2, tutoriel, tutorial, blog, checklist, livre, cours">
     #}
     <link rel="alternate" type="application/rss+xml" title="Un blog goutû sur la foi" href="{{ url('sdzblog_feed') }}">
@@ -27,18 +23,6 @@
 
   <body>
     <div class="container">
-<<<<<<< HEAD
-      <div id="header" class="hero-unit">
-        <h1>Ecole de la foi</h1>
-        <p>Ta Parole est une lampe à mes peids et une lumière sur mon sentier.( Psaumes 119:105 ) </p>
-        <p>La foi victorieuse internationale. LYON FRANCE</p>
-        <p>Ce projet est propulsé par le fr.Jean Jacques</p>
-        <p><a class="btn btn-primary btn-large" href="https://meet15579093.adobeconnect.com">
-          Accès dans la salle &raquo;</a></p>
-       </div>
-
-      <div class="row">
-=======
        <header id="header">               
            <hgroup>
                     <h1>{% block blog_title %}A l'Ecole de la foi{% endblock %}</h1>
@@ -46,7 +30,6 @@
            </hgroup>
        </header> 
     <div class="row">
->>>>>>> modif_layout
         <div id="menu" class="span3">
            <ul class="nav nav-pills nav-stacked">
                 <li><a href="{{ path('sdzblog_accueil')}}">Accueil</a></li>
