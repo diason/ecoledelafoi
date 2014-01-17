@@ -3,23 +3,31 @@
 <html>
   <head>
     <meta charset="utf-8">
+<<<<<<< HEAD
     <meta name="author" content="Jean Jacques DIASIVI">
+=======
+   {# <meta name="author" content="Alexandre Bacco">
+>>>>>>> modif_layout
     <meta name="keywords" content="Symfony2, Symfony, Symfony2.1, Symfony2.2, tutoriel, tutorial, blog, checklist, livre, cours">
-    <link rel="alternate" type="application/rss+xml" title="Un blog goutû sur Symfony2" href="{{ url('sdzblog_feed') }}">
+    #}
+    <link rel="alternate" type="application/rss+xml" title="Un blog goutû sur la foi" href="{{ url('sdzblog_feed') }}">
 
     <title>{% block title %}Ecoledelafoi{% endblock %}</title>
 
     {% block stylesheets %}
-      {% stylesheets output='css/main.css' filter='cssrewrite, ?yui_css'
+      {# % stylesheets output='css/accueil.css' filter='cssrewrite, ?yui_css'
         'css/bootstrap.css'
         '@SdzBlogBundle/Resources/public/css/main.css' %}
         <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-      {% endstylesheets %}
+      {% endstylesheets % #}
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css" />
+     <link rel="stylesheet" href="{{ asset('css/screen.css') }}" type="text/css" />    
     {% endblock %}
   </head>
 
   <body>
     <div class="container">
+<<<<<<< HEAD
       <div id="header" class="hero-unit">
         <h1>Ecole de la foi</h1>
         <p>Ta Parole est une lampe à mes peids et une lumière sur mon sentier.( Psaumes 119:105 ) </p>
@@ -30,52 +38,69 @@
        </div>
 
       <div class="row">
+=======
+       <header id="header">               
+           <hgroup>
+                    <h1>{% block blog_title %}A l'Ecole de la foi{% endblock %}</h1>
+                    <h3>{% block blog_tagline %}La Foi Victorieuse Internationale. LYON France{% endblock %}</h3>
+           </hgroup>
+       </header> 
+    <div class="row">
+>>>>>>> modif_layout
         <div id="menu" class="span3">
-          
-          <ul class="nav nav-pills nav-stacked">
-            <li><a href="{{ path('sdzblog_accueil') }}">Accueil du blog</a></li>
-            <li><a href="#">A propos</a></li>          
-            <li><a href="#">Contact</a></li>
-            {# On n'affiche le lien pour ajouter un article qu'aux utilisateurs disposant du rôle ROLE_AUTEUR #}
-            {% if is_granted('ROLE_AUTEUR') %}
-              <li><a href="{{ path('sdzblog_ajouter') }}">Ajouter un sujet</a></li>
-            {% endif %}
+           <ul class="nav nav-pills nav-stacked">
+                <li><a href="{{ path('sdzblog_accueil')}}">Accueil</a></li>
+                <li><a href="{{ path('sdzblog_about') }} ">A propos</a></li>          
+                <li><a href="{{ path('sdzblog_contact')}}">Contact</a></li>
+                {# On n'affiche le lien pour ajouter un article qu'aux utilisateurs disposant du rôle ROLE_AUTEUR #}
+                {% if is_granted('ROLE_AUTEUR') %}
+                  <li><a href="{{ path('sdzblog_ajouter') }}">Ajouter un sujet</a></li>
+                {% endif %}
           </ul>
-
+<hr>
           <!-- winzouCoreBundle::injectAdsense -->
 
           {# On affiche les 3 derniers articles #}
           {{ render(controller("SdzBlogBundle:Blog:menu", {'nombre': 3})) }}
-
+<hr>
           {# On affiche un coin espace membre :
              * Si le membre est identifié : lien de déconnexion
              * Sinon : formulaire de connexion #}
-          {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+          {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}        
             <h3>Membre</h3>
             <ul class="nav nav-pills nav-stacked">
               <li>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</li>
-              <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
-            </ul>
+              <li><a href="{{ path('fos_user_security_logout') }}">{{'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+            </ul>  
+            <p><a class="btn btn-primary btn-large" href="https://meet81579973.adobeconnect.com">
+                      Accès dans la salle &raquo; </a></p>
+            
           {# On affiche le formulaire de login, sauf sur la page de connexion #}
-          {% elseif app.request.attributes.get('_route') != 'fos_user_security_login' %}
+          {% elseif app.request.attributes.get('_route') != 'fos_user_security_login' %}           
             <h3>Identification</h3>
-            {{ render(controller('SdzUserBundle:Security:login')) }}
-          {% endif %}
-        </div>
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="{{ path('fos_user_security_login') }}">{{'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>                    
+            </ul>
+  <hr>    {# On affiche le formulaire de l'Inscription, sauf sur la page de connexion #}      
+            <h3>Inscription</h3>
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="{{ path('fos_user_registration_register') }}">{{'layout.register'|trans({}, 'FOSUserBundle') }}</a></li>
+            </ul>           
+           {% endif %}           
+     </div>
 
         {# Contenu central de la page #}
-        <div id="content" class="span9">
+     <div id="content" class="span9">
           {% block body %}
           {% endblock %}
-        </div>
-      </div>
+     </div>
+  </div>
 
-      <hr>
-
-      <footer>
-        <p>Réalisé par le Couple   Josiane et Jean-Jacques DIASIVI © 2013.</p>
-      </footer>
-    </div>
+  <hr>
+  <footer>
+        <p>Réalisé par le Couple Josiane et Jean-Jacques DIASIVI © 2013.</p>
+  </footer>
+ </div>
 
     {% block javascripts %}
       {# jQuery depuis le CDN de Google, ou fallback sur une copie locale #}
@@ -89,5 +114,6 @@
         <script type="text/javascript" src="{{ asset_url }}"></script>
       {% endjavascripts %}
     {% endblock %}
+        
   </body>
 </html>

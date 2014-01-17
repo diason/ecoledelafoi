@@ -1,15 +1,17 @@
 {# src/Sdz/BlogBundle/Resources/views/layout.html.twig #}
+{# layout span9 #}
 
 {% extends "::layout.html.twig" %}
 
 {% block title %}
     Blog - {{ parent() }}
+    <link href="{{ asset('bundles/sdzblog/css/blog.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
 {% block body %}
-
+   
     {# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}
-    <h1>Méditation</h1>
+    <h2>Méditation</h2>
 
     <hr>
 
@@ -28,5 +30,5 @@
     {# On définit un nouveau block, que les vues du bundle pourront remplir #}
     {% block sdzblog_body %}
     {% endblock %}
-
+    
 {% endblock %}

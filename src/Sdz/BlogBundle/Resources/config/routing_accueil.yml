@@ -4,3 +4,15 @@ sdzblog_accueil:
     defaults:  { _controller: SdzBlogBundle:Blog:index, page: 1 }
     requirements:
         page:  \d+
+
+sdzblog_about:
+    pattern:  /about
+    defaults: { _controller: SdzBlogBundle:Page:about }
+    requirements:
+        _method:  GET
+ 
+sdzblog_contact:
+    pattern:  /contact
+    defaults: { _controller: SdzBlogBundle:Page:contact }
+    requirements:
+        _method:  GET|POST

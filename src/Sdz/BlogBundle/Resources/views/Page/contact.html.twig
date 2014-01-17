@@ -1,0 +1,39 @@
+{# src/Sdz/BlogBundle/Resources/views/Page/contact.html.twig #}
+
+{% extends 'SdzBlogBundle::layout.html.twig' %}
+
+{% block title %}Contact{% endblock%}
+
+{% block body %}
+    <header>
+        <h3>Contact Ecole de la foi.</h3>
+    </header>
+
+        {% for flashMessage in app.session.flashbag.get('sdz-notice') %}
+        <div class="sdz-notice">
+        {{ flashMessage }}
+        </div>
+        {% endfor %}
+
+{#
+    {% if app.session.hasFlash('Sdz-notice') %}
+        <div class="Sdz-notice">
+            {{ app.session.flash('Sdz-notice') }}
+        </div>
+    {% endif %} #}
+
+    <p>Vous voulez nous contacter ?</p>
+
+    <form action="{{ path('sdzblog_contact') }}" method="post" {{ form_enctype(form) }} class="Sdz-notice">
+        {{ form_errors(form) }}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.subject) }}
+        {{ form_row(form.body) }}
+
+        {{ form_rest(form) }}
+
+        <input type="submit" value="Envoyer" class="btn btn-primary" />
+    </form>  
+{% endblock %}

@@ -1,0 +1,4 @@
+# src/Sdz/BlogBundle/Resources/config/config.yml
+parameters:
+    # Blogger contact email address
+    sdz_blog.emails.contact_email: jeandiasivi@gmail.com
