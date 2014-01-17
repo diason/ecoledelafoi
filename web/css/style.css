@@ -47,8 +47,12 @@ width: 1200px;
 margin: 0 auto;
 }
 header {
-height: 90px;
-border:2px solid;
+padding: 10px 0;
+background: rgb(201,167,170);
+clear: both;
+color: #a9f;
+text-align:center;
+border-radius:8px;
 -moz-border-radius:8px;
 }
 nav {
@@ -170,14 +174,6 @@ li {margin-left:10px ;}
 .radio input[type="radio"], .checkbox input[type="checkbox"] {
   margin-left:-90px; }
 
-#header { border-bottom: 1px solid #ccc; margin-bottom: 20px; }
-#header .top { border-bottom: 1px solid #ccc; margin-bottom: 10px; }
-#header ul.navigation { list-style: none; text-align: right; }
-#header .navigation li { display: inline }
-#header .navigation li a { display: inline-block; padding: 10px 15px; border-left: 1px solid #ccc; }
-#header h2 { font-family: 'Irish Grover', cursive; font-size: 92px; text-align: center; line-height: 110px; }
-#header h2 a { color: #000; }
-#header h3 { text-align: center; font-family: 'La Belle Aurore', cursive; font-size: 24px; margin-bottom: 20px; font-weight: normal; }
 
 header,hgroup,menu,nav {
 display:block}

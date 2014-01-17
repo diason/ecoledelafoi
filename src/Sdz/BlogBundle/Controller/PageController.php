@@ -23,7 +23,7 @@ class PageController extends Controller
     
             if ($form->isValid()) {
                $message = \Swift_Message::newInstance()
-                    ->setSubject('Contact enquiry from symblog')
+                    ->setSubject('Contact Ecole de la foi')
                     ->setFrom('enquiries@gmail.com')
                     ->setTo($this->container->getParameter('Sdz_blog.emails.contact_email'))
                     ->setBody($this->renderView('SdzBlogBundle:Page:contactEmail.txt.twig', array('enquiry' => $enquiry)));
@@ -33,7 +33,7 @@ class PageController extends Controller
         
                 // Redirect - This is important to prevent users re-posting
                 // the form if they refresh the page */
-                return $this->redirect($this->generateUrl('SdzBlogBundle_contact'));
+                return $this->redirect($this->generateUrl('sdzblog_contact'));
             }
         }
     

@@ -21,7 +21,9 @@ class Enquiry
     {
         $metadata->addPropertyConstraint('name', new NotBlank());
 
-        $metadata->addPropertyConstraint('email', new Email());
+        $metadata->addPropertyConstraint('email', new Email(array(
+    'message' => 'adresse e-mail non conforme !'
+)));
 
         $metadata->addPropertyConstraint('subject', new NotBlank());
         $metadata->addPropertyConstraint('subject', new Length(array(

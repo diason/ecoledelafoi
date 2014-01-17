@@ -1,3 +1,5 @@
+{# src/Sdz/BlogBundle/Resources/views/Page/contact.html.twig #}
+
 {% extends 'SdzBlogBundle::layout.html.twig' %}
 
 {% block title %}Contact{% endblock%}
@@ -20,7 +22,7 @@
         </div>
     {% endif %} #}
 
-    <p>vous voulez nous contacter ?</p>
+    <p>Vous voulez nous contacter ?</p>
 
     <form action="{{ path('sdzblog_contact') }}" method="post" {{ form_enctype(form) }} class="Sdz-notice">
         {{ form_errors(form) }}
@@ -32,6 +34,6 @@
 
         {{ form_rest(form) }}
 
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Envoyer" class="btn btn-primary" />
     </form>  
 {% endblock %}

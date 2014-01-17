@@ -7,7 +7,7 @@ parameters:
     database_password: null
 
     mailer_transport:  gmail
-    mailer_host:       localhost
+    mailer_host:       "smtp.gmail.com"
     mailer_user:       jeandiasivi@gmail.com
     mailer_password:   Romains109
 

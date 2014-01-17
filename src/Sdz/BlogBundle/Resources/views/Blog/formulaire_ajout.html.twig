@@ -8,9 +8,10 @@
 
     <form method="post" {{ form_enctype(form) }}> 
        {{ form_errors(form) }}
-
-        {{ form_widget(form) }}  
-
+        
+        {{ form_widget(form.date, { 'attr' : { 'style':'display:none'} }) }}
+        {{ form_errors(form.date, { 'attr' : { 'style':'display:none'} }) }}
+        
         {{ form_rest(form) }}
          
         <input type="submit" class="btn btn-primary" />

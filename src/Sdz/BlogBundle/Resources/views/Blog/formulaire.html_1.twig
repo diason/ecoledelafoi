@@ -5,19 +5,30 @@
 
 <h3></h3>
 
-
+<div class="well">
     <form method="post" {{ form_enctype(form) }}> 
-       {{ form_errors(form) }}
-
-        {{ form_widget(form) }}  
-
-        {{ form_rest(form) }}
-         
-        <input type="submit" class="btn btn-primary" />
-           
-    </form>
+        {#{ form_widget(form)}#}
+        <div>
+        {{ form_label(form.titre) }}
+        {{ form_errors(form.titre) }}
+        {{ form_widget(form.titre) }}
+      </div
+      
+        
+        {{ form_label(form.titre) }}
+        {{ form_errors(form.titre) }}
+        {{ form_widget(form.titre) }}
+     
    
-
+        {{ form_label(form.titre) }}
+        {{ form_errors(form.titre) }}
+        {{ form_widget(form.titre) }}
+      </div 
+        
+        
+        <input type="submit" class="btn btn-primary" />
+    </form>
+</div>
 
 {# On charge la librairie jQuery. Ici, je la prends depuis le site jquery.com, mais si vous l'avez en local, changez simplement l'adresse. #}
 <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
